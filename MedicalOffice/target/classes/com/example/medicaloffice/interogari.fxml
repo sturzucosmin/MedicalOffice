@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.medicaloffice.InterogariController">
+   <top>
+        <AnchorPane prefHeight="720.0" prefWidth="433.0" style="-fx-background-color: #114084;" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane layoutX="14.0" layoutY="25.0">
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                </GridPane>
+                <Label layoutX="33.0" layoutY="30.0" prefHeight="45.0" prefWidth="264.0" text="MedicalOffice" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="refreshButton" layoutX="1132.0" layoutY="40.0" mnemonicParsing="false" onAction="#RefreshButtonOnAction" style="-fx-background-color: WHITE;" text="Refresh" />
+                <MenuBar prefHeight="25.0" prefWidth="1200.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File" />
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            <TextField fx:id="cautaNumeMedic" layoutX="121.0" layoutY="130.0" promptText="Nume medic" />
+            <Label layoutX="121.0" layoutY="112.0" prefHeight="8.0" prefWidth="240.0" text="Afiseaza pacientii unui medic" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="cautaPacienti" layoutX="291.0" layoutY="130.0" mnemonicParsing="false" onAction="#CautaPacientiOnAction" text="OK" />
+            <TableView fx:id="pacientiMedicTableView" layoutX="121.0" layoutY="162.0" prefHeight="200.0" prefWidth="202.0">
+              <columns>
+                <TableColumn fx:id="numePacientMedicColumn" prefWidth="100.0" text="Nume" />
+                  <TableColumn fx:id="prenumePacientMedicColumn" prefWidth="101.0" text="Prenume" />
+              </columns>
+            </TableView>
+            <TableView fx:id="NrPacientiTableView" layoutX="459.0" layoutY="165.0" prefHeight="200.0" prefWidth="282.0">
+               <columns>
+                  <TableColumn fx:id="numeMedicColumn" prefWidth="100.0" text="Nume" />
+                  <TableColumn fx:id="prenumeMedicColumn" minWidth="0.0" prefWidth="68.0" text="Prenume" />
+                  <TableColumn fx:id="nrPacientiColumn" prefWidth="134.0" text="NrPacienti" />
+               </columns>
+            </TableView>
+            <Label layoutX="459.0" layoutY="115.0" prefHeight="18.0" prefWidth="223.0" text="Nr de pacienti/medic" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="nrPacientiButton" layoutX="708.0" layoutY="112.0" mnemonicParsing="false" onAction="#NrPacientiButtonOnAction" text="OK" />
+            <TableView fx:id="asigurareTableView" layoutX="852.0" layoutY="168.0" prefHeight="200.0" prefWidth="205.0">
+              <columns>
+                <TableColumn fx:id="tipAsigurareColumn" prefWidth="96.0" text="Tip Asigurare " />
+                <TableColumn fx:id="nrPacientiAsigurareColumn" prefWidth="106.0" text="Numar Pacienti" />
+              </columns>
+            </TableView>
+            <Label layoutX="852.0" layoutY="119.0" prefHeight="18.0" prefWidth="223.0" text="Asigurari medicale:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="asigurareButton" layoutX="1014.0" layoutY="115.0" mnemonicParsing="false" onAction="#AsigurareButtonOnAction" prefHeight="25.0" prefWidth="34.0" text="OK" />
+            <TextField fx:id="cautaSectie" layoutX="121.0" layoutY="416.0" promptText="Nume sectie" />
+            <Label layoutX="121.0" layoutY="398.0" prefHeight="18.0" prefWidth="252.0" text="Pacienti dupa sectie trimitere:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="cautaSectieButton" layoutX="291.0" layoutY="416.0" mnemonicParsing="false" onAction="#CautaSectieOnAction" text="OK" />
+            <TableView fx:id="sectieTableView" layoutX="121.0" layoutY="448.0" prefHeight="200.0" prefWidth="202.0">
+               <columns>
+                  <TableColumn fx:id="numeSectieColumn" prefWidth="100.0" text="Nume" />
+                  <TableColumn fx:id="prenumeSectieColumn" prefWidth="101.0" text="Prenume" />
+               </columns>
+            </TableView>
+            <TableView fx:id="reteteMedicTableView" layoutX="459.0" layoutY="448.0" prefHeight="200.0" prefWidth="536.0">
+               <columns>
+                  <TableColumn fx:id="dataEliberareColumn" prefWidth="100.0" text="DataEliberare" />
+                  <TableColumn fx:id="prescriptiaColumn" minWidth="0.0" prefWidth="350.0" text="Prescriptia" />
+                  <TableColumn fx:id="idPacientColumn" prefWidth="85.0" text="IDpacient" />
+               </columns>
+            </TableView>
+            <Label layoutX="459.0" layoutY="398.0" prefHeight="18.0" prefWidth="223.0" text="Retete medici:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="medicRetetaButton" layoutX="634.0" layoutY="416.0" mnemonicParsing="false" onAction="#medicRetetaButtonOnAction" text="OK" />
+            <TextField fx:id="numeMedicReteta" layoutX="459.0" layoutY="416.0" promptText="Nume medic" />
+            </children>
+        </AnchorPane>
+   </top>
+</BorderPane>
